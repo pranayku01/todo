@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<title>todo</title>
+</head>
+<body>
+	<div id="main">
+		<h1>TODO.</h1>
+		<!-- <h4 id="todo1">1. Clean room <br><button onclick="deletetodo(1)">Done</button></h4> -->
+		<div class="rowing"><input type="text" placeholder="Enter task:"><button id="bt1" onclick="addtask()">Add Todo!</button></div>
+		<br><br>
+		<script>
+			let cnt=1;
+			function deletetodo(index){
+				const el=document.getElementById("todo"+index);
+				el.parentNode.removeChild(el);
+			}
+			function addtask(){
+				const inputel = document.querySelector("input");
+				const value = inputel.value;
+
+				const newdivel=document.createElement("div");
+				newdivel.setAttribute('id','todo'+cnt);
+				newdivel.setAttribute('class','tasks');
+				newdivel.innerHTML="<div>"+value+"</div><br><button class='bt2' onclick='deletetodo("+cnt+")'>Done</button>";
+				document.querySelector("body").appendChild(newdivel);
+				cnt=cnt+1;
+			}
+		</script>
+	</div>
+</body>
+</html>
